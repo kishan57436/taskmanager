@@ -16,6 +16,25 @@ const registerUser = async (req, res) => {
       req.body;
 
     // Check if user already exists
+//  if (req.file) { 
+//             // Upload an image
+//             const uploadResult = await cloudinary.uploader
+//                 .upload(
+//                     req.file.path,
+//                     { folder: 'zaikaa', resource_type: 'auto' }
+//                 )
+//                 .catch((error) => {
+//                     console.log(error)
+//                     res.json({success:false,message:"Error"})
+//                 });
+//                 console.log("upload result check kar rha hu",uploadResult)
+
+//             featuredImage = uploadResult.secure_url
+//         }
+
+
+
+    ///
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
